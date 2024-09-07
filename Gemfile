@@ -59,4 +59,7 @@ group :test do
 end
 
 # 環境変数設定用
-gem 'dotenv-rails'
+gem "dotenv-rails"
+
+# lint対策
+gem "rubocop", require: false
