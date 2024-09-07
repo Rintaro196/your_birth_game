@@ -1,0 +1,21 @@
+databases:
+  - name: your_birth_game_production
+    databaseName: your_birth_game_database
+    user: mana
+    region: singapore
+
+services:
+  - type: web
+    name: yourbirthgame
+    env: ruby
+    region: singapore
+    plan: free
+    buildCommand: "./bin/render-build.sh"
+    startCommand: "bundle exec puma -C config/puma.rb"
+    envVars:
+      - key: DATABASE_URL
+        fromDatabase:
+          name: your_birth_game_production
+          property: connectionString
+      - key: RAILS_MASTER_KEY
+        sync: false
