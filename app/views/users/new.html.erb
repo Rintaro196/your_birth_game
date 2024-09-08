@@ -1,0 +1,10 @@
+<body>
+    <h1>あなたの名前と誕生日を入力してね</h1>
+    <%= form_with(model: @user) do |f| %>
+      <%= f.label :name, "名前" %><br>
+      <%= f.text_field :mame %><br>
+      <%= f.label :birth_date, "誕生日" %><br>
+      <%= f.date_select :birth_date, { start_year: 1950, end_year: 2024, use_two_digit_numbers: true } %><br>
+      <%= f.submit "検索する" %>
+    <% end %>
+</body>
