@@ -2,11 +2,22 @@ class UsersController < ApplicationController
   def new; end
 
   def submit
-    @user = User.new(user_params)
-    if @user.save
-      redirect_to result_path(id: @user.id)
+    # 名前をparams[:user][:name]から取得
+    @user = User.find_by(name: user_params[:name])
+
+    if @user
+      if @user.update(user_params)
+        redirect_to result_path(id: @user.id)
+      else
+        redirect_to new_users_path
+      end
     else
-      redirect_to new_users_path
+      @user = User.new(user_params)
+      if @user.save
+        redirect_to result_path(id: @user.id)
+      else
+        redirect_to new_users_path
+      end
     end
   end
 
