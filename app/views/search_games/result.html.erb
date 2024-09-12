@@ -1,0 +1,22 @@
+<body>
+  <% if @games.present? %>
+    <ul>
+      <% @games.each do |game| %>
+        <li>
+          <strong><%= game['name'] %></strong>
+          <% if game['cover'] %>
+            <div>
+              <img src="<%= "https:#{game['cover']['url']}" %>" alt="<%= game['name'] %> cover image">
+            </div>
+          <% end %>
+        </li>
+        <li>Genres: <%= game['genres']&.map { |g| g['name'] }.join(', ') %></li>
+        <li>Platforms: <%= game['platforms']&.map { |p| p['name'] }.join(', ') %></li>
+        <li>Release Date: <%= Time.at(game['first_release_date']).strftime('%Y-%m-%d') if game['first_release_date'] %></li>
+        <li>Summary: <%= game['summary'] %></li>
+      <% end %>
+    </ul>
+  <% else %>
+    <p>No games found.</p>
+  <% end %>
+</body>
