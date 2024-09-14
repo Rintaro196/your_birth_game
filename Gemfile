@@ -63,6 +63,3 @@ gem "dotenv-rails"
 
 # lint対策
 gem "rubocop", require: false
-
-# igdb
-gem "igdb"
