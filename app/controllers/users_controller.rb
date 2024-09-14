@@ -7,14 +7,14 @@ class UsersController < ApplicationController
 
     if @user
       if @user.update(user_params)
-        redirect_to result_path(id: @user.id)
+        redirect_to result_path(user_id: @user.id)
       else
         redirect_to new_users_path
       end
     else
       @user = User.new(user_params)
       if @user.save
-        redirect_to result_path(id: @user.id)
+        redirect_to result_path(user_id: @user.id)
       else
         redirect_to new_users_path
       end
