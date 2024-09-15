@@ -2,7 +2,6 @@ class UsersController < ApplicationController
   def new; end
 
   def submit
-    # 名前をparams[:user][:name]から取得
     @user = User.find_by(name: user_params[:name])
 
     if @user
@@ -19,10 +18,6 @@ class UsersController < ApplicationController
         redirect_to new_users_path
       end
     end
-  end
-
-  def result
-    @user = User.find(params[:id])
   end
 
   private

@@ -1,7 +1,16 @@
 <body>
-  <% if @game.present? %>
-      <%= @game %>
-  <% else %>
-    <p>一致するゲームは見つかりませんでした</p>
-  <% end %>
+  <div class="text-center my-8">
+    <% if @game.present? %>
+      <p class="text-xl">あなたが生まれた日にリリースされたゲームは…</p>
+      <h2 class="text-6xl text-red-300"><%= @game['name'] %></h2>
+      <p class="text-xl">でした！！</p>
+      <div class="grid place-items-center my-4">
+        <%= image_tag "#{@game['background_image']}", height: "300", width: "400" %>
+      </div>
+      <%= link_to "トップに戻る", root_path, class: "btn btn-wide bg-yellow-400 hover:bg-red-300 text-white text-xl my-8" %>
+    <% else %>
+      <p>一致するゲームが見つかりませんでした</p>
+      <p>年を変えて再検索してみてね</p>
+    <% end %>
+  </div>
 </body>
