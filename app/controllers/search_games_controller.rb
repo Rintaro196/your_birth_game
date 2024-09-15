@@ -12,7 +12,10 @@ class SearchGamesController < ApplicationController
       headers: { 'Cache-Control' => 'no-cache' }
     })
 
-    @game = response.parsed_response["results"]&.first
+    game_data = response.parsed_response["results"]&.first
+    @game = game_data
+    @genres = game_data["genres"].map { |genre| genre["name"] } if game_data.present?
+
     render :result
   end
 end
