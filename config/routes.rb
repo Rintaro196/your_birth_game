@@ -4,5 +4,6 @@ Rails.application.routes.draw do
 
   get "users/new", to: "users#new", as: "new_users"
   post "users", to: "users#submit", as: "submit_users"
-  get "users/result/:id", to: "users#result", as: "result"
+  
+  get "games/result/:user_id", to: "search_games#search", as: "result"
 end
