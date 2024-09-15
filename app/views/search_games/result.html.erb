@@ -1,5 +1,6 @@
 <body>
   <div class="text-center my-8">
+    <p><%= @birth_date %></p>
     <% if @game.present? %>
       <p class="text-xl">あなたが生まれた日にリリースされたゲームは…</p>
       <h2 class="text-6xl text-red-300"><%= @game['name'] %></h2>
