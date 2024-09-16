@@ -64,4 +64,8 @@ gem "dotenv-rails"
 # lint対策
 gem "rubocop", require: false
 
+# use_api
 gem "httparty"
+
+# ogp
+gem "meta-tags"
