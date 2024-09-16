@@ -1,7 +1,7 @@
 class SearchGamesController < ApplicationController
   def search
-    user = User.find(params[:user_id])
-    @birth_date = user.birth_date.strftime("%Y-%m-%d")
+    @user = User.find(params[:user_id])
+    @birth_date = @user.birth_date.strftime("%Y-%m-%d")
 
     response = HTTParty.get("https://api.rawg.io/api/games", {
       query: {
