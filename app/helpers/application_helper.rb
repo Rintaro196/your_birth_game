@@ -6,9 +6,8 @@ module ApplicationHelper
       charset: 'utf-8',
       description: 'あなたの誕生日に発売されたゲームは何かな？',
       canonical: request.original_url,
-    },
     og: {
-      sites_name: :site,
+      site_name: :site,
       description: :description,
       type: 'website',
       url: request.original_url,
@@ -17,6 +16,7 @@ module ApplicationHelper
     },
     twitter: {
       card: 'summary_large_image',
-    }
+      image: image_url('YourBirthGame.png')
+    }}
   end
 end
